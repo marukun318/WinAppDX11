@@ -177,9 +177,13 @@
   <ItemGroup>
     <ClInclude Include="..\targetver.h" />
     <ClInclude Include="CMD3D11.h" />
+    <ClInclude Include="CMD3D11Rtv.h" />
+    <ClInclude Include="CMD3D11Tex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMD3D11.cpp" />
+    <ClCompile Include="CMD3D11Rtv.cpp" />
+    <ClCompile Include="CMD3D11Tex.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
