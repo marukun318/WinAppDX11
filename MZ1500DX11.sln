@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MZD3D11", "src\windows\MZD3D11\MZD3D11.vcxproj", "{72DDF685-2A77-403B-B702-0165E7A71455}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CMD3D11", "src\windows\CMD3D11\CMD3D11.vcxproj", "{72DDF685-2A77-403B-B702-0165E7A71455}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MZ1500DX11", "MZ1500DX11.vcxproj", "{254F1F6F-89F2-462F-9B0F-A440F2B9581D}"
 	ProjectSection(ProjectDependencies) = postProject

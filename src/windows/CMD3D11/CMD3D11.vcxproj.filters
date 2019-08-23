@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MZD3D11.h">
+    <ClInclude Include="CMD3D11.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\targetver.h">
@@ -19,7 +19,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MZD3D11.cpp">
+    <ClCompile Include="CMD3D11.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

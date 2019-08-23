@@ -1,4 +1,3 @@
-// $Id: MZD3D11.h 321 2018-01-19 10:56:19Z maruyama $
 // Direct3D11
 // written by maru
 //
@@ -6,8 +5,8 @@
 
 #include	"../targetver.h"
 
-#ifndef __MZD3D11_H__
-#define __MZD3D11_H__
+#ifndef __CMD3D11_H__
+#define __CMD3D11_H__
 
 #ifndef STRICT
 #define STRICT						// 型チェックを厳密に行う
@@ -41,11 +40,11 @@
 using namespace DirectX;
 
 //
-class MZD3D11
+class CMD3D11
 {
 public:
-	MZD3D11();
-	~MZD3D11();
+	CMD3D11();
+	~CMD3D11();
 
 	HRESULT CompileShaderFromFile(const WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
 	HRESULT InitDevice();
@@ -74,7 +73,7 @@ private:
 	ID3D11RenderTargetView* m_pRenderTargetView = nullptr;
 	ID3D11RasterizerState*	m_pRasterState = nullptr;
 #ifdef USE_DEPTHSTENCILVIEW
-	ID3D11Texture2D*		m_pDepthStencil;		// 深度/ステンシル・テクスチャを受け取る変数
+	ID3D11Texture2D*		m_pDepthStencil;					// 深度/ステンシル・テクスチャを受け取る変数
 	ID3D11DepthStencilView*	m_pDepthStencilView = nullptr;		// 深度/ステンシルビュー
 #endif
 	ID3D11VertexShader*     m_pVertexShader = nullptr;
@@ -99,4 +98,4 @@ private:
 	volatile bool			m_bLost;							// ロスト処理中
 };
 
-#endif		// __MZD3D11_H__
+#endif		// __CMD3D11_H__

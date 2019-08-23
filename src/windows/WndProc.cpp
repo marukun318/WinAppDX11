@@ -6,7 +6,7 @@
 #include	"MZ1500DX11.h"
 #include	<memory>
 #include	<d3d11_1.h>
-#include	"../windows/CMD3D11/MZD3D11.h"
+#include	"../windows/CMD3D11/CMD3D11.h"
 
 #define MAX_LOADSTRING 100
 
@@ -32,7 +32,7 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 // DirectX èâä˙âª
-MZD3D11 d3d11;
+CMD3D11 d3d11;
 
 //
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,

@@ -1,4 +1,4 @@
-﻿#include "MZD3D11.h"
+﻿#include "CMD3D11.h"
 
 #define SAFE_RELEASE(x) if( (x) != nullptr ){ (x)->Release(); x = nullptr; }
 
@@ -50,7 +50,7 @@ static SimpleVertex const vertices[] =
 //--------------------------------------------------------------------------------------
 // コンストラクタ
 //--------------------------------------------------------------------------------------
-MZD3D11::MZD3D11()
+CMD3D11::CMD3D11()
 {
 	m_bLost = false;
 }
@@ -58,7 +58,7 @@ MZD3D11::MZD3D11()
 //--------------------------------------------------------------------------------------
 // デストラクタ
 //--------------------------------------------------------------------------------------
-MZD3D11::~MZD3D11()
+CMD3D11::~CMD3D11()
 {
 	CleanupDevice();
 }
@@ -66,7 +66,7 @@ MZD3D11::~MZD3D11()
 //--------------------------------------------------------------------------------------
 // Error Dialog
 //--------------------------------------------------------------------------------------
-void MZD3D11::ErrorDialog(const WCHAR* msg)
+void CMD3D11::ErrorDialog(const WCHAR* msg)
 {
 	MessageBox(nullptr, msg, L"Error", MB_OK);
 }
@@ -76,7 +76,7 @@ void MZD3D11::ErrorDialog(const WCHAR* msg)
 //
 // With VS 11, we could load up prebuilt .cso files instead...
 //--------------------------------------------------------------------------------------
-HRESULT MZD3D11::CompileShaderFromFile(const WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut)
+HRESULT CMD3D11::CompileShaderFromFile(const WCHAR* szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut)
 {
 	HRESULT hr = S_OK;
 
@@ -112,7 +112,7 @@ HRESULT MZD3D11::CompileShaderFromFile(const WCHAR* szFileName, LPCSTR szEntryPo
 //--------------------------------------------------------------------------------------
 // Create Direct3D device and swap chain
 //--------------------------------------------------------------------------------------
-HRESULT MZD3D11::InitDevice()
+HRESULT CMD3D11::InitDevice()
 {
 	HRESULT hr;
 
@@ -132,7 +132,7 @@ HRESULT MZD3D11::InitDevice()
 //--------------------------------------------------------------------------------------
 // Create Device Resources
 //--------------------------------------------------------------------------------------
-HRESULT MZD3D11::CreateDeviceResources()
+HRESULT CMD3D11::CreateDeviceResources()
 {
 	HRESULT hr = S_OK;
 
@@ -298,7 +298,7 @@ HRESULT MZD3D11::CreateDeviceResources()
 		sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 		sd.BufferDesc.RefreshRate.Numerator = 60;
 		sd.BufferDesc.RefreshRate.Denominator = 1;
-		//		sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;		// これをつけるとフルスクリーン時の解像度が実解像度になる
+//		sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;		// これをつけるとフルスクリーン時の解像度が実解像度になる
 		sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 		sd.OutputWindow = g_hWnd;
 #ifndef USE_MSAA
@@ -406,7 +406,7 @@ HRESULT MZD3D11::CreateDeviceResources()
 //--------------------------------------------------------------------------------------
 //  CreateWindowSizeDependentResources
 //--------------------------------------------------------------------------------------
-HRESULT MZD3D11::CreateWindowSizeDependentResources()
+HRESULT CMD3D11::CreateWindowSizeDependentResources()
 {
 	HRESULT hr = S_OK;
 	const char* VS_ver = "vs_5_0";
@@ -567,7 +567,7 @@ HRESULT MZD3D11::CreateWindowSizeDependentResources()
 //--------------------------------------------------------------------------------------
 // Clean up the objects we've created
 //--------------------------------------------------------------------------------------
-void MZD3D11::CleanupDevice()
+void CMD3D11::CleanupDevice()
 {
 	if (m_pImmediateContext) m_pImmediateContext->ClearState();
 
@@ -606,7 +606,7 @@ void MZD3D11::CleanupDevice()
 //--------------------------------------------------------------------------------------
 // Render the frame
 //--------------------------------------------------------------------------------------
-void MZD3D11::Render()
+void CMD3D11::Render()
 {
 	if (m_bLost) return;
 
@@ -645,8 +645,6 @@ void MZD3D11::Render()
 
 	// Set Pixel shader
 	m_pImmediateContext->PSSetShader(m_pPixelShader, nullptr, 0);
-	//	g_pImmediateContext->PSSetConstantBuffers(1, 1, &g_pCBNeverChanges);
-	//	g_pImmediateContext->PSSetConstantBuffers(2, 1, &g_pCBChangeOnResize);
 	m_pImmediateContext->PSSetConstantBuffers(3, 1, &m_pCBChangesEveryFrame);
 
 	// Set the input layout
@@ -675,7 +673,7 @@ void MZD3D11::Render()
 //--------------------------------------------------------------------------------------
 // Device lost process
 //--------------------------------------------------------------------------------------
-void MZD3D11::HandleDeviceLost()
+void CMD3D11::HandleDeviceLost()
 {
 	HRESULT reason = m_pd3dDevice->GetDeviceRemovedReason();
 
