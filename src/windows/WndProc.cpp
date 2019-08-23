@@ -3,7 +3,7 @@
 // Direct3D11 基本的な初期化＋ポリゴン頂点カラー描画
 //
 
-#include	"MZ1500DX11.h"
+#include	"WinAppDX11.h"
 #include	<memory>
 #include	<d3d11_1.h>
 #include	"../windows/CMD3D11/CMD3D11.h"

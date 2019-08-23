@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\windows\MZ1500DX11.h">
+    <ClInclude Include="src\windows\WinAppDX11.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\windows\Resource.h">
