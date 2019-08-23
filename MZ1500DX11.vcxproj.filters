@@ -51,4 +51,9 @@
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shader.hlsl">
+      <Filter>Shader Files</Filter>
+    </FxCompile>
+  </ItemGroup>
 </Project>

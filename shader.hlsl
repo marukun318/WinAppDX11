@@ -39,7 +39,6 @@ struct VS_OUTPUT
 VS_OUTPUT VS(float4 Pos : POSITION, float4 Col : COLOR, float2 Tex : TEXCOORD0)
 {
 	VS_OUTPUT output = (VS_OUTPUT)0;
-//	output.Pos = mul(Pos, g_WVP);
 	Pos = mul(Pos, World);
 	Pos = mul(Pos, View);
 	output.Pos = mul(Pos, Projection);

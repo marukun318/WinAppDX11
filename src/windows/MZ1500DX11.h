@@ -8,8 +8,12 @@
 
 // C ランタイム ヘッダー ファイル
 #include <stdlib.h>
+#include <stdint.h>
 #include <malloc.h>
 #include <memory.h>
 #include <wchar.h>
 
 #include	"../windows/Resource.h"
+
+#define WIN_WIDTH	640
+#define WIN_HEIGHT	400
