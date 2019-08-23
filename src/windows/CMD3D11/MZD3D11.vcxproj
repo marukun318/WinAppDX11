@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{72DDF685-2A77-403B-B702-0165E7A71455}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MZD3D11</RootNamespace>
+    <RootNamespace>CMD3D11</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -176,10 +176,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\targetver.h" />
-    <ClInclude Include="MZD3D11.h" />
+    <ClInclude Include="CMD3D11.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MZD3D11.cpp" />
+    <ClCompile Include="CMD3D11.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

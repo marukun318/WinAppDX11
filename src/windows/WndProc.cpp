@@ -6,7 +6,7 @@
 #include	"MZ1500DX11.h"
 #include	<memory>
 #include	<d3d11_1.h>
-#include	"../windows/MZD3D11/MZD3D11.h"
+#include	"../windows/CMD3D11/MZD3D11.h"
 
 #define MAX_LOADSTRING 100
 
