@@ -7,21 +7,7 @@
 #ifndef __CMD311Tex_H__
 #define __CMD311Tex_H__
 
-#ifndef STRICT
-#define STRICT						 // 型チェックを厳密に行う
-#endif
-
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN			// ヘッダーからあまり使われない関数を除く
-#endif
-
-#include	<cstdint>
-
-#include	<windows.h>
-#include	<d3d11_1.h>
-#include	<atlbase.h>				// CComPtr の宣言を含む
-#include	<wrl\client.h>
-
+#include	"common.h"
 #include	"CMD3D11.h"
 
 class CMD3D11Tex

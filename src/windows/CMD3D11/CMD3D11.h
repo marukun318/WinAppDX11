@@ -3,24 +3,11 @@
 //
 #pragma once
 
-#include	"../targetver.h"
-
 #ifndef __CMD3D11_H__
 #define __CMD3D11_H__
 
-#ifndef STRICT
-#define STRICT						// 型チェックを厳密に行う
-#endif
+#include "common.h"
 
-#ifndef NOMINMAX
-#define NOMINMAX
-#endif
-
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN			// ヘッダーからあまり使われない関数を除く
-#endif
-
-#include <windows.h>
 #include <d3d11_1.h>
 #include <d2d1_1.h>
 #include <d2d1helper.h>

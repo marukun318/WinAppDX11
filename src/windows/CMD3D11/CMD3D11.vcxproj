@@ -179,6 +179,7 @@
     <ClInclude Include="CMD3D11.h" />
     <ClInclude Include="CMD3D11Rtv.h" />
     <ClInclude Include="CMD3D11Tex.h" />
+    <ClInclude Include="common.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMD3D11.cpp" />
