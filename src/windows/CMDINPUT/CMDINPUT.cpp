@@ -1,0 +1,12 @@
+#include "CMDINPUT.h"
+
+
+
+CMDINPUT::CMDINPUT()
+{
+}
+
+
+CMDINPUT::~CMDINPUT()
+{
+}
