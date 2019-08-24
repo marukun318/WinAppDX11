@@ -10,7 +10,7 @@
 #define IDM_EXIT                        105
 #define IDI_WINAPP                      107
 #define IDI_SMALL                       108
-#define IDC_DX11TEST01                  109
+#define IDC_DX11TAPP                    109
 #define IDC_WINAPP                      109
 #define IDR_MAINFRAME                   128
 #define IDC_STATIC                      -1

@@ -186,7 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="src\windows\directx.ico" />
-    <Image Include="src\windows\small.ico" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shader.hlsl">

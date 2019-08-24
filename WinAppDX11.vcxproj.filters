@@ -47,9 +47,6 @@
     <Image Include="src\windows\directx.ico">
       <Filter>リソース ファイル</Filter>
     </Image>
-    <Image Include="src\windows\small.ico">
-      <Filter>リソース ファイル</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shader.hlsl">
