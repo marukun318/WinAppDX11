@@ -15,6 +15,12 @@ AppMain::~AppMain()
 {
 }
 
+// ‰Šú‰»
+void AppMain::SetUp()
+{
+
+}
+
 // XV
 void AppMain::Update()
 {

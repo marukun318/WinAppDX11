@@ -109,6 +109,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	// AppMain
 	appmain = new AppMain();
+	appmain->SetUp();				// ‰Šú‰»
 
 
 #ifdef UseQueryPerformanceCounter

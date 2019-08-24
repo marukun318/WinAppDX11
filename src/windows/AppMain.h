@@ -14,6 +14,7 @@ public:
 	AppMain();
 	~AppMain();
 
+	void SetUp();
 	void Update();
 	void Draw();
 };
