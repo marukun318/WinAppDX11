@@ -7,6 +7,8 @@
 #include	<memory>
 #include	<d3d11_1.h>
 #include	"../windows/CMD3D11/CMD3D11.h"
+#include	"../windows/CMDINPUT/CMDINPUT.h"
+
 
 #define MAX_LOADSTRING 100
 
@@ -32,7 +34,8 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 // DirectX 初期化
-CMD3D11 d3d11;
+CMD3D11		d3d11;
+CMDINPUT	dinput;		// dinput
 
 //
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -82,6 +85,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+	HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPP));
+
 	// DirectX11を初期化します。
 	hr = d3d11.InitDevice();
 	if (FAILED(hr))
@@ -90,7 +95,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		return 0;
 	}
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPP));
+	// DirectInput Init
+	dinput.Init(hInstance, g_hWnd);
+
 
 #ifdef UseQueryPerformanceCounter
 	LARGE_INTEGER liTimeOld;
@@ -135,6 +142,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 #else
 				dwTimeOld = dwTimeNow;
 #endif
+				dinput.Update();							// DirectInput 処理
 				// User job
 				d3d11.Render();
 			}
@@ -144,6 +152,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 #ifndef UseQueryPerformanceCounter
 	timeEndPeriod(1);
 #endif
+
+	// ライブラリの解放
+	dinput.Cleanup();										// DirectInput
+
 
 	UnregisterClass(nullptr, hInstance);
 
@@ -278,6 +290,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+
+	case WM_ACTIVATE:
+		if (WA_INACTIVE == wParam)
+		{
+			// Window非アクティブ
+			dinput.Unacquire();
+		}
+		else {
+			// Windowアクティブ
+			dinput.Acquire();
+		}
+		return 0;
+
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
