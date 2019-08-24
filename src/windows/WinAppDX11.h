@@ -15,5 +15,5 @@
 
 #include	"../windows/Resource.h"
 
-#define WIN_WIDTH	640
-#define WIN_HEIGHT	400
+//#define WIN_WIDTH		640
+//#define WIN_HEIGHT	400

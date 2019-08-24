@@ -7,6 +7,7 @@
 #define __CMD3D11_H__
 
 #include "common.h"
+#include "screen_size.h"
 
 #include <d3d11_1.h>
 #include <d2d1_1.h>

@@ -225,7 +225,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
   //ウインドウのクライアント領域（=DirectXの描画領域）を指定
    const DWORD dwStyle = WS_OVERLAPPEDWINDOW & (~(WS_MAXIMIZEBOX |WS_THICKFRAME));
-   RECT rc = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
+   RECT rc = { 0, 0, screen_width, screen_height };
 #if _MSC_VER >= 1900	// Visual Studio 2015 以降だったらWindow縦を伸ばす
    rc.bottom += 20;
 #endif

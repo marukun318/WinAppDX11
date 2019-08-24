@@ -4,8 +4,8 @@
 
 extern CMD3D11		d3d11;
 
-#define TEX_WIDTH	640
-#define TEX_HEIGHT	480
+#define TEX_WIDTH	screen_width
+#define TEX_HEIGHT	screen_height
 
 
 // コンストラクタ
