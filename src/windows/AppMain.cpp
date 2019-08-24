@@ -37,17 +37,14 @@ void AppMain::Update()
 	// »—’
 	uint32_t* ptr = offscr;
 	uint32_t data = 0;
-	int i;
-	int j;
-	for (i = 0; i < TEX_HEIGHT; i++) {
-		for (j = 0; j < TEX_WIDTH; j++) {
+	for (int i = 0; i < TEX_HEIGHT; i++) {
+		for (int j = 0; j < TEX_WIDTH; j++) {
 			data = 0xFF000000 | ((rand() & 0xFF) << 16) | ((rand() & 0xFF) << 9) | (rand() & 0xFF);
 //			*(ptr++) = 0xFFFF0000;		//0xAABBGGRR
 			*(ptr++) = data;
 		}
 	}
 	offtex->Update(offscr);
-//	offtex->Map2(offscr);
 }
 
 // •`‰æ
