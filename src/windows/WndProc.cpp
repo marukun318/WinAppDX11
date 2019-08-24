@@ -4,7 +4,6 @@
 //
 
 #include	"WinAppDX11.h"
-#include	<memory>
 #include	<d3d11_1.h>
 #include	"../windows/CMD3D11/CMD3D11.h"
 #include	"../windows/CMDINPUT/CMDINPUT.h"
