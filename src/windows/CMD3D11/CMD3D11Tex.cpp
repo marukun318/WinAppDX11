@@ -172,7 +172,7 @@ void CMD3D11Tex::Map(uint32_t *src)
 	d3d11.m_pImmediateContext->Unmap(m_pOffScreen, 0);
 }
 //
-void CMD3D11Tex::Map2(uint32_t *src)
+void CMD3D11Tex::UpdateRect(uint32_t *src)
 {
 	if (m_pOffScreen == nullptr) return;
 
@@ -184,11 +184,11 @@ void CMD3D11Tex::Map2(uint32_t *src)
 	box.top = 0;
 	box.bottom = m_height;
 
-	d3d11.m_pImmediateContext->UpdateSubresource(m_pOffScreen, 0, &box, src, m_width * 4, m_width * m_height * 4);
+	d3d11.m_pImmediateContext->UpdateSubresource(m_pOffScreen, 0, &box, src, m_width * sizeof(uint32_t), m_width * m_height * sizeof(uint32_t));
 
 }
 
-void CMD3D11Tex::Map2(uint16_t *src)
+void CMD3D11Tex::Map(uint16_t *src)
 {
 	if (m_pOffScreen == nullptr) return;
 
@@ -203,23 +203,21 @@ void CMD3D11Tex::Map2(uint16_t *src)
 		pTexels[i] = src[i];
 	}
 
-	//	memcpy_s(pTexels, m_width * m_height, src, sizeof(uint32_t));		//
 	d3d11.m_pImmediateContext->Unmap(m_pOffScreen, 0);
 
 //	LeaveCriticalSection(&cs);
 }
 
-void CMD3D11Tex::Update(uint32_t *src, ID3D11DeviceContext* context)
+void CMD3D11Tex::Update(uint32_t *src)
 {
-	if (m_pOffScreen == nullptr) return;
+	if (m_pOffScreen == nullptr || src == nullptr) return;
 
-	context->UpdateSubresource(m_pOffScreen, 0, nullptr, (UINT32*)src, m_width * 4, 0);
+	d3d11.m_pImmediateContext->UpdateSubresource(m_pOffScreen, 0, nullptr, (UINT32*)src, m_width * sizeof(uint32_t), 0);
 }
 
-void CMD3D11Tex::Update(uint16_t *src, ID3D11DeviceContext* context)
+void CMD3D11Tex::Update(uint16_t *src)
 {
-	if (m_pOffScreen == nullptr) return;
+	if (m_pOffScreen == nullptr || src == nullptr) return;
 
-	context->UpdateSubresource(m_pOffScreen, 0, nullptr, (UINT16*)src, m_width * 2, 0);
-
+	d3d11.m_pImmediateContext->UpdateSubresource(m_pOffScreen, 0, nullptr, (UINT16*)src, m_width * sizeof(uint16_t), 0);
 }

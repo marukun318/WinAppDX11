@@ -608,6 +608,12 @@ void CMD3D11::CleanupDevice()
 //--------------------------------------------------------------------------------------
 void CMD3D11::Render()
 {
+	Render(m_pShaderResView);
+}
+
+//
+void CMD3D11::Render(ID3D11ShaderResourceView* shaderResView)
+{
 	if (m_bLost) return;
 
 	RECT rc;
@@ -654,7 +660,7 @@ void CMD3D11::Render()
 	m_pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	// テクスチャとサンプラ設定
-	m_pImmediateContext->PSSetShaderResources(0, 1, &m_pShaderResView);
+	m_pImmediateContext->PSSetShaderResources(0, 1, &shaderResView);
 	m_pImmediateContext->PSSetSamplers(0, 1, &m_pSamplerState);
 
 	// Render a quad

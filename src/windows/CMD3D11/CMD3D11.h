@@ -21,6 +21,10 @@
 #include <directxcolors.h>
 #include <d3dcompiler.h>
 
+#include "CMD3D11Tex.h"
+#include "CMD3D11Rtv.h"
+
+
 #define USE_DEPTHSTENCILVIEW		// コメントアウトすると深度/ステンシルバッファを使わない
 #define USE_MSAA					// コメントアウトするとMSAA （マルチサンプル・アンチエイリアシング） を使わない
 
@@ -38,6 +42,8 @@ public:
 	inline ID3D11Device* GetDevice() { return m_pd3dDevice; }
 	void CleanupDevice();
 	void Render();
+	void Render(ID3D11ShaderResourceView*);
+
 	void HandleDeviceLost();
 
 private:

@@ -19,10 +19,12 @@ public:
 	~CMD3D11Tex();
 
 	void Map(uint32_t *);
-	void Map2(uint32_t *);
-	void Map2(uint16_t *);
-	void Update(uint16_t *, ID3D11DeviceContext*);
-	void Update(uint32_t *, ID3D11DeviceContext*);
+	void Map(uint16_t *);
+
+	void UpdateRect(uint32_t *);
+	
+	void Update(uint16_t *);
+	void Update(uint32_t *);
 
 	ID3D11ShaderResourceView*  GetShaderResouceView() { return m_pShaderResView;  }
 
