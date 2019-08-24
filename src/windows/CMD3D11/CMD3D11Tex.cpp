@@ -142,7 +142,7 @@ void CMD3D11Tex::InitTexture(int w, int h, DXGI_FORMAT format, bool bCpu, bool b
 }
 
 
-//
+// DYNAMIC ‚¶‚á‚È‚¢‚Æ—Ž‚¿‚é
 void CMD3D11Tex::Map(uint32_t *src)
 {
 	D3D11_MAPPED_SUBRESOURCE mappedTex;
@@ -171,7 +171,7 @@ void CMD3D11Tex::Map(uint32_t *src)
 
 	d3d11.m_pImmediateContext->Unmap(m_pOffScreen, 0);
 }
-//
+// DEFAULT ‚¶‚á‚È‚¢‚Æ—Ž‚¿‚é
 void CMD3D11Tex::UpdateRect(uint32_t *src)
 {
 	if (m_pOffScreen == nullptr) return;
@@ -188,6 +188,7 @@ void CMD3D11Tex::UpdateRect(uint32_t *src)
 
 }
 
+// DYNAMIC ‚¶‚á‚È‚¢‚Æ—Ž‚¿‚é
 void CMD3D11Tex::Map(uint16_t *src)
 {
 	if (m_pOffScreen == nullptr) return;
@@ -208,6 +209,7 @@ void CMD3D11Tex::Map(uint16_t *src)
 //	LeaveCriticalSection(&cs);
 }
 
+// DEFAULT ‚¶‚á‚È‚¢‚Æ—Ž‚¿‚é
 void CMD3D11Tex::Update(uint32_t *src)
 {
 	if (m_pOffScreen == nullptr || src == nullptr) return;
@@ -215,6 +217,7 @@ void CMD3D11Tex::Update(uint32_t *src)
 	d3d11.m_pImmediateContext->UpdateSubresource(m_pOffScreen, 0, nullptr, (UINT32*)src, m_width * sizeof(uint32_t), 0);
 }
 
+// DEFAULT ‚¶‚á‚È‚¢‚Æ—Ž‚¿‚é
 void CMD3D11Tex::Update(uint16_t *src)
 {
 	if (m_pOffScreen == nullptr || src == nullptr) return;
