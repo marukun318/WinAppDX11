@@ -34,13 +34,24 @@ void AppMain::SetUp()
 // 更新
 void AppMain::Update()
 {
+	// 砂嵐
+	uint32_t* ptr = offscr;
+	uint32_t data = 0;
+	int i;
+	int j;
+	for (i = 0; i < TEX_HEIGHT; i++) {
+		for (j = 0; j < TEX_WIDTH; j++) {
+			data = 0xFF000000 | ((rand() & 0xFF) << 16) | ((rand() & 0xFF) << 9) | (rand() & 0xFF);
+//			*(ptr++) = 0xFFFF0000;		//0xAABBGGRR
+			*(ptr++) = data;
+		}
+	}
+	offtex->Update(offscr);
+//	offtex->Map2(offscr);
 }
 
 // 描画
 void AppMain::Draw()
 {
-//	offtex->Map2(offscr);
-	offtex->Update(offscr);
-
 	d3d11.Render(offtex->m_pShaderResView);			// オフスクリーンを描画
 }
