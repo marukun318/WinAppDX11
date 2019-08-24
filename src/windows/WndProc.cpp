@@ -8,6 +8,7 @@
 #include	<d3d11_1.h>
 #include	"../windows/CMD3D11/CMD3D11.h"
 #include	"../windows/CMDINPUT/CMDINPUT.h"
+#include	"../windows/CMXINPUT/CMXINPUT.h"
 
 
 #define MAX_LOADSTRING 100
@@ -36,6 +37,7 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 // DirectX èâä˙âª
 CMD3D11		d3d11;
 CMDINPUT	dinput;		// dinput
+CMXINPUT	xinput;		// xinput
 
 //
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -97,6 +99,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	// DirectInput Init
 	dinput.Init(hInstance, g_hWnd);
+	// XInput Init *ToDo*
+//	xinput.Init();
+
+
 
 
 #ifdef UseQueryPerformanceCounter
@@ -143,6 +149,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 				dwTimeOld = dwTimeNow;
 #endif
 				dinput.Update();							// DirectInput èàóù
+//				xinput.Update();							// XInput èàóù *ToDo*
 				// User job
 				d3d11.Render();
 			}
@@ -154,6 +161,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 #endif
 
 	// ÉâÉCÉuÉâÉäÇÃâï˙
+//	xinput.Cleanup();										// XInput			*ToDo*
 	dinput.Cleanup();										// DirectInput
 
 
