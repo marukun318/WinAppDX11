@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{72DDF685-2A77-403B-B702-0165E7A71455}</ProjectGuid>
+    <ProjectGuid>{4303C089-9D4D-4B8D-ADC4-61A96B557451}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CMD3D11</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
