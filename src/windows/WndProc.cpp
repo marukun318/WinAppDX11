@@ -9,6 +9,7 @@
 #include	"../windows/CMDINPUT/CMDINPUT.h"
 #include	"../windows/CMXINPUT/CMXINPUT.h"
 
+#include	"AppMain.h"
 
 #define MAX_LOADSTRING 100
 
@@ -37,6 +38,9 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 CMD3D11		d3d11;
 CMDINPUT	dinput;		// dinput
 CMXINPUT	xinput;		// xinput
+
+// AppMain
+static AppMain*		appmain = nullptr;
 
 //
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -103,6 +107,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 
 
+	// AppMain
+	appmain = new AppMain();
+
 
 #ifdef UseQueryPerformanceCounter
 	LARGE_INTEGER liTimeOld;
@@ -150,7 +157,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 				dinput.Update();							// DirectInput ˆ—
 				xinput.Update();							// XInput ˆ—
 				// User job
-				d3d11.Render();
+				appmain->Update();
+				appmain->Draw();
 			}
 		}
 	}
@@ -159,6 +167,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	timeEndPeriod(1);
 #endif
 
+	// AppMain íœ
+	if (appmain) {
+		delete appmain;
+		appmain = nullptr;
+	}
 	// ƒ‰ƒCƒuƒ‰ƒŠ‚Ì‰ğ•ú
 	xinput.Cleanup();										// XInput
 	dinput.Cleanup();										// DirectInput

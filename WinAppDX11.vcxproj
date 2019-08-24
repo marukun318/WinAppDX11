@@ -171,9 +171,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\windows\AppMain.cpp" />
     <ClCompile Include="src\windows\WndProc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\windows\AppMain.h" />
     <ClInclude Include="src\windows\WinAppDX11.h" />
     <ClInclude Include="src\windows\Resource.h" />
     <ClInclude Include="src\windows\targetver.h" />
