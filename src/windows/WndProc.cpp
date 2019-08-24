@@ -93,14 +93,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	hr = d3d11.InitDevice();
 	if (FAILED(hr))
 	{
-		MessageBox(g_hWnd, L"DirectX11の初期化に失敗しました。", L"エラー", MB_OK);
+		MessageBox(g_hWnd, L"DirectX11 initialization failed.", L"Error", MB_OK);
 		return 0;
 	}
 
 	// DirectInput Init
 	dinput.Init(hInstance, g_hWnd);
-	// XInput Init *ToDo*
-//	xinput.Init();
+	// XInput Init
+	xinput.Init();
 
 
 
@@ -149,7 +149,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 				dwTimeOld = dwTimeNow;
 #endif
 				dinput.Update();							// DirectInput 処理
-//				xinput.Update();							// XInput 処理 *ToDo*
+				xinput.Update();							// XInput 処理
 				// User job
 				d3d11.Render();
 			}
@@ -161,7 +161,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 #endif
 
 	// ライブラリの解放
-//	xinput.Cleanup();										// XInput			*ToDo*
+	xinput.Cleanup();										// XInput
 	dinput.Cleanup();										// DirectInput
 
 
