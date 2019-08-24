@@ -41,10 +41,11 @@ struct CBChangesEveryFrame
 static SimpleVertex const vertices[] =
 {
 	// 2D Vertex
-	{ XMFLOAT3(0.0f,0.0f, 0.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
-	{ XMFLOAT3(640.0f,0.0f, 0.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) },
+	// 座標，頂点カラー，ＵＶ
+	{ XMFLOAT3(0.0f,0.0f, 0.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
+	{ XMFLOAT3(640.0f,0.0f, 0.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) },
 	{ XMFLOAT3(0.0f, 400.0f, 0.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
-	{ XMFLOAT3(640.0f, 400.0f, 0.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
+	{ XMFLOAT3(640.0f, 400.0f, 0.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
 };
 
 //--------------------------------------------------------------------------------------
