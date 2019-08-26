@@ -259,20 +259,13 @@ HRESULT CMDINPUT::Update() {
 	}
 
 	// Keyboard Update
-	hr = pDIKey->GetDeviceState(sizeof(key_buffer), (LPVOID)&key_buffer);
-	if (FAILED(hr)) {
-		if (hr == DIERR_INPUTLOST) {
-			pDIKey->Acquire();
-		}
-		return E_FAIL;
-	}
-
+	GetKeyState();
 
 	return S_OK;
 }
 
 // キーボードだけ更新
-HRESULT CMDINPUT::GetKeyState(unsigned char *kb)
+HRESULT CMDINPUT::GetKeyState()
 {
 	HRESULT hr;
 
@@ -280,7 +273,7 @@ HRESULT CMDINPUT::GetKeyState(unsigned char *kb)
 		return E_FAIL;
 
 	// Keyboard Update
-	hr = pDIKey->GetDeviceState(sizeof(key_buffer), (LPVOID)kb);
+	hr = pDIKey->GetDeviceState(sizeof(key_buffer), key_buffer);
 	if (FAILED(hr)) {
 		if (hr == DIERR_INPUTLOST) {
 			pDIKey->Acquire();

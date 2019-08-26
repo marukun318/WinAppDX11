@@ -40,7 +40,7 @@ public:
 	BOOL Cleanup();
 	HRESULT Update();
 	HRESULT GetJoyState(int);
-	HRESULT GetKeyState(unsigned char *kb);
+	HRESULT GetKeyState();
 
 	DIJOYSTATE2 * GetState(int no);
 
